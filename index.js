@@ -37,10 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 //app.set('views', path.join(__dirname, 'views'))
 
 
-var options = {
-    key: fs.readFileSync('/etc/letsencrypt/live/massangooo.net/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/massangooo.net/fullchain.pem'),
-}
+
 
 var server = https.createServer(options, app);
 
