@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C#をVSCodeでやってみた</title>
+    <meta content="C#をVSCodeでやってみた" name="description">
+    <meta property="og:title" content="Massango" />
+    <meta property="og:description" content="C#をVSCodeでやってみた" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://massangooo.net" />
+    <meta property="og:image" content="https://massangooo.net/mass.png" />
+    <meta property="og:site_name" content="Massango" />
+    <meta property="og:locale" content="ja_JP"  />
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="../footer/footer.css">
+    <link rel="icon" href="../favicon.ico">
+</head>
+<body>
+    <header>
+        <a href="../index.html"><div class="logo">MASSANGO</div></a>
+        <nav>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">Profile</a></li>
+            
+            <li><a href="../service.html">Services</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="main-content">
+        <div class="box">
+            <h2>C#をVSCodeでやってみた</h2>
+            <br>
+            <div class="box-1">
+                <p class="title1">目次</p>
+                <ui class="indent-h2">
+                    <li><a href="#chapter-1" class="text-desu">拡張機能について</a></li>
+                    <li><a href="#chapter-2" class="text-desu">作った物</a></li>
+                    <li><a href="#chapter-3" class="text-desu">コンパイルの仕方</a></li>
+                    <li><a href="#chapter-4" class="text-desu">感想</a></li>
+
+                </ui>
+            </div>
+            <br>
+            <h2 id="chapter-1">拡張機能について</h2>
+            <p>拡張機能は、「C#」、「C# Dev Kit」を入れています。</p>
+            <p>C#</p>
+            <img src="../gazou/c.png" alt="cしゃーぷのがぞう" width="100%">
+            <p>C# Dev Kit</p>
+            <img src="../gazou/cdev.png" alt="cでぶきっと" width="100%">
+            <br><br>
+            <h2 id="chapter-2">作った物</h2>
+            <p>osもどきをC#で作ってみたかったので、作成しました。</p>
+            <img src="../gazou/osmodoki.png" alt="osmodokides" width="100%">
+
+            <p>一応コードです。</p>
+
+            <pre>
+                <code>
+                    using System;
+                    using System.Drawing;
+                    using System.Threading.Tasks;
+                    using System.Windows.Forms;
+                    using System.Diagnostics;
+                    
+                    public class StartMenu : UserControl
+                    {
+                    
+                        private Label titleLabel;
+                        private PictureBox shutdownBox;
+                    
+                    
+                        public StartMenu()
+                        {
+                            InitializeComponents();
+                            this.Hide();
+                        }
+                    
+                        private void InitializeComponents()
+                        {
+                            this.Size = new Size(500,600);
+                            this.BackColor = Color.Gray;
+                            this.Location = new System.Drawing.Point(0, Screen.PrimaryScreen.Bounds.Height - 70 - this.Height);
+                    
+                    
+                            //タイトルラベルを表示
+                            titleLabel = new Label();
+                            titleLabel.Text = "スタートメニュー";
+                            titleLabel.Font = new Font("Arial", 14, FontStyle.Bold);
+                            titleLabel.ForeColor = Color.White;
+                            titleLabel.Size = new Size(200,30);
+                            titleLabel.Location = new Point(10,10);
+                    
+                            //シャットダウンボタン
+                            Image shutdownImage = Image.FromFile("pic/shutdown.png");
+                            shutdownBox = new PictureBox();
+                            shutdownBox.Image = shutdownImage;
+                            shutdownBox.Size = new Size(40,40);
+                            shutdownBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                            shutdownBox.Location = new Point(5, this.ClientSize.Height - shutdownBox.Height - 20);
+                            shutdownBox.Click += ShutdownBox_Click;
+                    
+                    
+                            //表示
+                            this.Controls.Add(shutdownBox);
+                            this.Controls.Add(titleLabel);
+                        }
+                    
+                            private void ShutdownBox_Click(object sender, EventArgs e)
+                            {
+                                Application.Exit();
+                            }
+                    }
+                    
+                    
+                    public class Form2 : Form
+                    {
+                    
+                        private WebBrowser webBrowser;
+                    
+                        public Form2()
+                        {
+                            InitializeComponents();
+                        }
+                    
+                        private void InitializeComponents()
+                        {
+                            this.Text = "Form2";
+                            this.Size = new System.Drawing.Size(700,900);
+                    
+                            webBrowser = new WebBrowser();
+                            webBrowser.Dock = DockStyle.Fill;
+                            this.Controls.Add(webBrowser);
+                    
+                            webBrowser.Navigate("https://www.google.com/");
+                    
+                        }
+                    }
+                    
+                    
+                    class MyForm : Form
+                    {
+                    
+                        private PictureBox pictureBox;
+                        private PictureBox pictureBox1;
+                        private Label timeLabel;
+                        private Label dateLabel;
+                        private StartMenu startMenu;
+                        private PictureBox chromePic;
+                    
+                    
+                    
+                        public MyForm()
+                        {
+                    
+                            //windowのタイトルを指定できるらしい
+                            this.Text = "ウィンドウ";
+                            //windowのでかさを最大に
+                            this.WindowState = FormWindowState.Maximized;
+                            this.FormBorderStyle = FormBorderStyle.None;
+                    
+                    
+                            //イメージ読み込み
+                            Image buttonImage = Image.FromFile("pic/a.png");
+                            Image buttonImage1 = Image.FromFile("pic/ver.png");
+                            Image childImage = Image.FromFile("pic/app.png");
+                            Image wallpaperImage = Image.FromFile("pic/wallpaper.jpg");
+                            Image chromeImage = Image.FromFile("pic/chrome.png");
+                    
+                            //ボタンのなんか色々
+                            pictureBox = new PictureBox();
+                            pictureBox.Image = buttonImage;
+                            pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
+                            startMenu = new StartMenu();
+                    
+                            pictureBox.Click += PictureBox_Click;
+                    
+                            this.Controls.Add(startMenu);
+                            //this.Click += (sender, e) => startMenu.Show();
+                            
+                    
+                            //タスクバーの方
+                            pictureBox1 = new PictureBox();
+                            pictureBox1.Image = buttonImage1;
+                            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+                    
+                            //時計の色々
+                            timeLabel = new Label();
+                            timeLabel.ForeColor = Color.Black;
+                            timeLabel.BackColor = Color.FromArgb(0xc3, 0xc3, 0xc3);
+                            timeLabel.Font = new Font("Arial", 12, FontStyle.Bold);
+                            timeLabel.AutoSize = false;
+                            timeLabel.Size = new System.Drawing.Size(100,20);
+                    
+                            //日付とか
+                            dateLabel = new Label();
+                            dateLabel.ForeColor = Color.Black;
+                            dateLabel.BackColor = Color.FromArgb(0xc3, 0xc3, 0xc3);
+                            dateLabel.Font = new Font("Arial", 12, FontStyle.Bold);
+                            dateLabel.AutoSize = false;
+                            dateLabel.Size = new System.Drawing.Size(150, 20);
+                    
+                            //chromeのicon
+                            chromePic = new PictureBox();
+                            chromePic.Image = chromeImage;
+                            chromePic.Size = new Size(40,40);
+                            chromePic.SizeMode = PictureBoxSizeMode.StretchImage;
+                            chromePic.Click += OpenFormButton_Click;
+                    
+                            
+                    
+                    
+                            //壁紙の方
+                            this.BackgroundImage = wallpaperImage;
+                            this.BackgroundImageLayout = ImageLayout.Stretch;
+                    
+                            //大きさとか座標
+                            pictureBox.Location = new System.Drawing.Point(0, this.ClientSize.Height - pictureBox.Height);
+                    
+                            this.Resize += MyForm_Resize;
+                    
+                            ArrangeImage();
+                    
+                            //なんか入れる
+                            Controls.Add(pictureBox);
+                            Controls.Add(pictureBox1);
+                            Controls.Add(timeLabel);
+                            Controls.Add(chromePic);
+                    
+                            //時間の色々
+                            Timer tiemr = new Timer();
+                            tiemr.Interval = 1000;
+                            tiemr.Tick += Timer_Tick;
+                            tiemr.Start();
+                    
+                            //日付取得
+                            //最後のDateを付けないと時間も取得しちゃうから注意
+                            Timer dt = new Timer();
+                            dt.Interval = 1000;
+                            dt.Tick += Date_Tick;
+                    
+                            Controls.Add(dateLabel);
+                    
+                            dt.Start();
+                    
+                        }
+                    
+                        private void OpenFormButton_Click(object sender, EventArgs e)
+                        {
+                            Form2 f = new Form2();
+                            f.TopLevel = false;
+                            Controls.Add(f);
+                            f.Show();
+                            f.BringToFront();
+                        }
+                    
+                        private void PictureBox_Click(object sender, EventArgs e)
+                        {
+                            startMenu.Visible = !startMenu.Visible;
+                        }
+                    
+                    
+                    
+                        private void MyForm_Resize(object sender, EventArgs e)
+                        {
+                            ArrangeImage();
+                        }
+                    
+                    
+                        private void Timer_Tick(object sender, EventArgs e)
+                        {
+                            timeLabel.Text = DateTime.Now.ToString("HH:mm");
+                        }
+                    
+                        private void Date_Tick(object sender, EventArgs e)
+                        {
+                            dateLabel.Text = DateTime.Now.Date.ToString("yyyy年MM月dd日");
+                        }
+                    
+                        private void ArrangeImage()
+                        {
+                            pictureBox1.Location = new System.Drawing.Point(0, this.ClientSize.Height - pictureBox1.Height);
+                            pictureBox.Location = new System.Drawing.Point(0, this.ClientSize.Height - pictureBox.Height);
+                    
+                            //時間
+                            timeLabel.Location = new System.Drawing.Point(this.ClientSize.Width - timeLabel.Width, this.ClientSize.Height - timeLabel.Height - 35);
+                            timeLabel.BringToFront();
+                    
+                            //日付
+                            dateLabel.Location = new System.Drawing.Point(this.ClientSize.Width - dateLabel.Width , this.ClientSize.Height - dateLabel.Height - 5);
+                            dateLabel.BringToFront();
+                        }   
+                    }
+                    
+                    class Program
+                    {
+                        [STAThread]
+                        static void Main()
+                        {
+                            Application.EnableVisualStyles();
+                            Application.SetCompatibleTextRenderingDefault(false);
+                            Application.Run(new MyForm());
+                        }
+                    }
+                </code>
+              </pre>
+
+
+              <p>OSもどきが動いているところの画像</p>
+              <img src="../gazou/osnainogazou.png" alt="osmodokigaugoiteiru" width="100%">
+              <br><br>
+              <h2 id="#chapter-3">コンパイルの仕方</h2>
+              <p>コンパイルをする方法は、面倒ですが、ターミナルを開いて、</p>
+              <pre>
+                <code>
+C:\WINDOWS\Microsoft.NET\Framework64\v4.0.30319\csc 〇〇.cs
+                </code>
+              </pre>
+              と入力すると、コンパイルができます。
+              <br><br>
+              <h2 id="#chapter-4">感想</h2>
+              <p>Visual StuidoのほうがC#は開発しやすい★</p>
+
+
+
+              </div>
+              
+
+            </div>
+
+      
+
+
+        <footer class="pane-footer">
+          <div class="container">
+      
+              <div id="footernav" class="block-footernav">
+                <ul class="block-footernav--item-list-1">
+                  <li class="block-footernav--ttl"><a href="../index.html">サイト</a></li>
+                  <li class="block-footernav--content"><a href="../about.html">プロフィール</a></li>
+                  <li class="block-footernav--content"><a href="../profile.html">プロフィール(アニメ風)</a></li>
+                  <li class="block-footernav--content"><a href="../service.html">サービス</a></li>
+                  <li class="block-footernav--content"><a href="../blog.html">ブログ</a></li>
+                  <li class="block-footernav--content"><a href="weather.html">今日の天気</a></li>
+                  <li class="block-footernav--content"><a href="../shakkin/index.html">Rehiniの借金時計</a></li>
+                  <!--<li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>-->
+                  <!--<li class="block-footernav--other"><a href="#" target="_blank">#</a></li>-->
+                </ul>
+                <ul class="block-footernav--item-list-1">
+                  <li class="block-footernav--ttl"><a href="../service.html">サービス</a></li>
+                  <li class="block-footernav--content"><a href="../service/sitemap/index.html">サイトマップ作成</a></li>
+                  <li class="block-footernav--content"><a href="../mags.html">MAGs</a></li>
+                  <li class="block-footernav--content"><a href="../3dgs.html">3BGs</a></li>
+                  <li class="block-footernav--content"><a href="../service/keisan/keisan.html">自動計算</a></li>
+                  <li class="block-footernav--content"><a href="../topng.html">topng</a></li>
+      
+                  <!--<li class="block-footernav--ttl block-footernav--other"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>-->
+                </ul>
+                <ul class="block-footernav--item-list-2">
+                  <li><a href="../pagesabout.html">はじめての方へ</a></li>
+                  <li><a href="../form/form.html">お問い合わせ</a></li>
+                  <!--<li><a href="#">よくある質問</a></li>-->
+                  <li><a href="../sitepolicy.html">ウェブサイトご利用規約</a></li>
+                </ul>
+                <ul class="block-footernav--item-list-3">
+                  <li><a target="_blank" href="https://hassy1216.github.io/"><img src="https://raw.githubusercontent.com/hassy1216/hassy1216.github.io/main/sketch-1696510507951.png" alt="hassy" width="200px"></a></li>
+                  <li><a target="_blank" href="https://m1ntooo.com"><img src="https://m1ntooo.com/Banner/m1ntooo.png" alt="m1ntooo" width="200px"></a></li>
+                  <li><a target="_blank" href="https://rumiserver.com/"><img src="https://rumiserver.com/Asset/rumisan_room/BANNR.png" alt="るみちゃん" width="200px"></a></li>
+                  <li><a target="_blank" href="topng.html"><img src="koukoku/topng_koukoku.png" alt="topngの広告" width="200px"></a></li>
+                </ul>
+              </div>
+          </div>
+
+  </div>
+
+
+
+</body>
+</html>
+

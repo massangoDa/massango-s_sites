@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Handjet&display=swap');
+
+
+
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #8A9A5B;
+    color: #fff;
+    padding: 10px;
+    font-family: Handjet;
+  }
+  
+  .logo {
+    font-size: 50px;
+    padding: 10px;
+  }
+  
+  nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-size: 25px;
+    margin-right: 10%;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-left: 70px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  nav ul li a:hover {
+    color: #f7f7f7;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  /* モバイル版スタイル */
+  @media screen and (max-width: 768px) {
+    .header-content {
+      align-items: center;
+      flex-direction: column;
+    }
+  
+    .logo {
+      margin-bottom: 10px;
+    }
+  
+    nav {
+      display: flex; /* モバイル版では表示するんだぜええええ */
+      flex-direction: column;
+      margin-top: 20px;
+    }
+  
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    nav ul li {
+      margin-left: 0;
+      margin-bottom: 10px; 
+    }
+  
+    .box {
+      width: 95%;
+    }
+  }
+
+  li {
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: calc(var(--index) * 0.1s);
+  }
+
+  a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease;
+  }
+  
+  a:hover::after {
+    width: 100%;
+  }
+
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+
+
+
+  .marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-text {
+    display: inline-block;
+    animation: marqueeAnimation 8s linear infinite;
+}
+
+@keyframes marqueeAnimation {
+    from {
+        transform: translateX(1000%);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}

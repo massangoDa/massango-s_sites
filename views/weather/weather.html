@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天気予報 ｜ MASSANGO</title>
+    <meta content="MASSANGOの今日の天気です" name="description">
+    <meta property="og:title" content="Massango" />
+    <meta property="og:description" content="MASSANGOの今日の天気です" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://massangooo.net" />
+    <meta property="og:image" content="https://massangooo.net/mass.png" />
+    <meta property="og:site_name" content="Massango" />
+    <meta property="og:locale" content="ja_JP"  />
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../footer/footer.css">
+    <link rel="icon" href="../favicon.ico">
+</head>
+<body>
+    <header>
+        <a href="../index.html"><div class="logo">MASSANGO</div></a>
+        <nav>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">Profile</a></li>
+            
+            <li><a href="../service.html">Services</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="main-content">
+        <div class="box">
+          <h2>今日の天気</h2>
+          <tr>
+            <td colspan="3">
+              <p id="weather"></p>
+              <img id="weatherIcon" src="" alt="天気アイコン" width="600px">
+              <p id="solarPower">1時間の発電量: <span id="solarPowerValue"></span></p>
+              <canvas id="solarPowerChart" width="400" height="200"></canvas>
+            </td>
+          </tr>
+
+
+              </div>
+              
+
+            </div>
+
+      
+
+
+        <footer class="pane-footer">
+          <div class="container">
+      
+              <div id="footernav" class="block-footernav">
+                <ul class="block-footernav--item-list-1">
+                  <li class="block-footernav--ttl"><a href="../index.html">サイト</a></li>
+                  <li class="block-footernav--content"><a href="../about.html">プロフィール</a></li>
+                  <li class="block-footernav--content"><a href="../profile.html">プロフィール(アニメ風)</a></li>
+                  <li class="block-footernav--content"><a href="../service.html">サービス</a></li>
+                  <li class="block-footernav--content"><a href="../blog.html">ブログ</a></li>
+                  <li class="block-footernav--content"><a href="weather.html">今日の天気</a></li>
+                  <li class="block-footernav--content"><a href="../shakkin/index.html">Rehiniの借金時計</a></li>
+                  <!--<li class="block-footernav--content"><a href="#">ここに新しい乱を作るにだ</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--other"><a href="#" target="_blank">#</a></li>-->
+                </ul>
+                <ul class="block-footernav--item-list-1">
+                  <li class="block-footernav--ttl"><a href="../service.html">サービス</a></li>
+                  <li class="block-footernav--content"><a href="../service/sitemap/index.html">サイトマップ作成</a></li>
+                  <li class="block-footernav--content"><a href="../mags.html">MAGs</a></li>
+                  <li class="block-footernav--content"><a href="../3dgs.html">3BGs</a></li>
+                  <li class="block-footernav--content"><a href="../service/keisan/keisan.html">自動計算</a></li>
+                  <li class="block-footernav--content"><a href="../topng.html">topng</a></li>
+      
+                  <!--<li class="block-footernav--ttl block-footernav--other"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>-->
+                </ul>
+                <ul class="block-footernav--item-list-2">
+                  <li><a href="../pagesabout.html">はじめての方へ</a></li>
+                  <li><a href="../form/form.html">お問い合わせ</a></li>
+                  <!--<li><a href="#">よくある質問</a></li>-->
+                  <li><a href="../sitepolicy.html">ウェブサイトご利用規約</a></li>
+                </ul>
+                <ul class="block-footernav--item-list-3">
+                  <li><a target="_blank" href="https://hassy1216.github.io/"><img src="https://raw.githubusercontent.com/hassy1216/hassy1216.github.io/main/sketch-1696510507951.png" alt="hassy" width="200px"></a></li>
+                  <li><a target="_blank" href="https://m1ntooo.com"><img src="https://m1ntooo.com/Banner/m1ntooo.png" alt="m1ntooo" width="200px"></a></li>
+                  <li><a target="_blank" href="https://rumiserver.com/"><img src="https://rumiserver.com/Asset/rumisan_room/BANNR.png" alt="るみちゃん" width="200px"></a></li>
+                  <li><a target="_blank" href="topng.html"><img src="koukoku/topng_koukoku.png" alt="topngの広告" width="200px"></a></li>
+                </ul>
+              </div>
+          </div>
+
+  </div>
+
+  <script src="chart.js"></script>
+  <script>
+    // チャートの初期化
+    const ctx = document.getElementById('solarPowerChart').getContext('2d');
+    const solarPowerChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [],
+        datasets: [{
+          label: '発電量 (kW)',
+          data: [],
+          fill: false,
+          borderColor: 'rgb(75, 192, 192)',
+          tension: 0.1
+        }]
+      },
+      options: {
+        scales: {
+          x: {
+            type: 'linear',
+            position: 'bottom'
+          },
+          y: {
+            min: 0
+          }
+        }
+      }
+    });
+  
+    function fetchWeather() {
+      const weatherElement = document.getElementById('weather');
+      const weatherIconElement = document.getElementById('weatherIcon');
+      const solarPowerElement = document.getElementById('solarPower');
+  
+      // サーバーから天気情報を取得
+      fetch('/weather')
+        .then(response => response.text())
+        .then(data => {
+          const currentWeather = data.trim();  // 余分なスペースを取り除く
+          weatherElement.textContent = `今日の天気: ${currentWeather}`;
+  
+          // 天気によってアイコンを表示
+          switch (currentWeather) {
+            case '晴れ':
+              weatherIconElement.src = 'sunny.png';
+              break;
+            case '曇り':
+              weatherIconElement.src = 'cloudy.png';
+              break;
+            case '雨':
+              weatherIconElement.src = 'rainy.png';
+              break;
+            default:
+              weatherIconElement.src = '';
+          }
+  
+          // 1時間ごとの発電量を取得
+          fetch('/solarPower')
+            .then(response => response.json())
+            .then(solarPowerData => {
+              // 発電量の表示
+              document.getElementById('solarPowerValue').textContent = `発電量: ${solarPowerData.currentPower} kW`;
+  
+              // チャートにデータを追加
+              solarPowerChart.data.labels.push(solarPowerData.timestamp);
+              solarPowerChart.data.datasets[0].data.push(solarPowerData.currentPower);
+              solarPowerChart.update();  // チャートを更新
+            })
+            .catch(error => console.error('Error fetching solar power:', error));
+        })
+        .catch(error => console.error('Error fetching weather:', error));
+    }
+  
+    // ページが読み込まれた時に実行
+    document.addEventListener('DOMContentLoaded', () => {
+      fetchWeather();
+      // 1時間ごとに新しい天気と発電量を取得
+      setInterval(fetchWeather, 60 * 60 * 1000);
+    });
+  </script>
+  
+  
+  
+
+
+
+</body>
+</html>
+

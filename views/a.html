@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HEIC to PNG Converter</title>
+  <style>
+    #output {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .converted-image {
+      margin: 10px;
+    }
+
+    #downloadAllLink {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <input type="file" id="fileInput" accept=".heic" multiple>
+  <div id="output"></div>
+  <a id="downloadAllLink" style="display: none;" onclick="downloadAll()">Download All as ZIP</a>
+
+  <script>
+    document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+
+    function handleFileSelect(event) {
+      const files = event.target.files;
+      if (files.length > 0) {
+        convertAndDisplayImages(Array.from(files));
+      }
+    }
+
+    function convertAndDisplayImages(files) {
+      const outputDiv = document.getElementById('output');
+      outputDiv.innerHTML = ''; // Clear previous images
+
+      files.forEach((file, index) => {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          const dataURL = e.target.result;
+          const img = new Image();
+
+          img.onload = function () {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, img.width, img.height);
+            const pngDataUrl = canvas.toDataURL('image/png');
+
+            // Display the converted PNG image
+            const imgElement = document.createElement('img');
+            imgElement.src = pngDataUrl;
+            imgElement.alt = `Converted PNG ${index + 1}`;
+            imgElement.classList.add('converted-image');
+            outputDiv.appendChild(imgElement);
+
+            // Display the download button for each image
+            const downloadLink = document.createElement('a');
+            downloadLink.href = pngDataUrl;
+            downloadLink.download = `converted_image_${index + 1}.png`;
+            downloadLink.innerHTML = `Download PNG ${index + 1}`;
+            outputDiv.appendChild(downloadLink);
+
+            // Display the download all button when all images are processed
+            if (index === files.length - 1) {
+              const downloadAllLink = document.getElementById('downloadAllLink');
+              downloadAllLink.style.display = 'block';
+            }
+          };
+
+          img.src = dataURL;
+        };
+
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function downloadAll() {
+      const files = document.getElementById('fileInput').files;
+      const zip = new JSZip();
+
+      Array.from(files).forEach((file, index) => {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const dataURL = e.target.result;
+          const img = new Image();
+
+          img.onload = function () {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, img.width, img.height);
+            const pngDataUrl = canvas.toDataURL('image/png');
+
+            // Add the converted image to the ZIP file
+            const fileName = `converted_image_${index + 1}.png`;
+            zip.file(fileName, pngDataUrl.split(',')[1], { base64: true });
+
+            // Download the ZIP file after processing all images
+            if (index === files.length - 1) {
+              zip.generateAsync({ type: 'blob' })
+                .then(function (content) {
+                  saveAs(content, 'converted_images.zip');
+                });
+            }
+          };
+
+          img.src = dataURL;
+        };
+
+        reader.readAsDataURL(file);
+      });
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</body>
+</html>

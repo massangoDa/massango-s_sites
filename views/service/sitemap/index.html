@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>サイトマップジェネレータ-サイトマップを自動生成「MASSANGO」</title>
+    <meta content="サイトのURLを書き込むだけでsitemapを作成します。" name="description">
+    <meta property="og:title" content="Massango" />
+    <meta property="og:description" content="サイトのURLを書き込むだけでsitemapを作成します。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://massangooo.net" />
+    <meta property="og:image" content="https://massangooo.net/mass.png" />
+    <meta property="og:site_name" content="Massango" />
+    <meta property="og:locale" content="ja_JP"  />
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../footer/footer.css">
+    <link rel="icon" href="favicon.ico">
+    <meta name="csrf-token" content="{{ csrfToken }}">
+</head>
+<body>
+    <header>
+        <a href="../../index.html"><div class="logo">MASSANGO</div></a>
+        <nav>
+          <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../../about.html">Profile</a></li>
+            <li><a href="../../profile.html">Profile(anime)</a></li>
+            <li><a href="../../service.html">Services</a></li>
+            <li><a href="../../blog.html">Blog</a></li>
+          </ul>
+        </nav>
+      </header>
+    <h1>サイトマップジェネレータ</h1>
+    <form id="sitemap-form">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        <label for="url">URLを入力してください:</label>
+        <input type="text" id="url" required>
+        <button type="submit">サイトマップ生成</button>
+    </form>
+    <a id="download-link" style="display: none" download="sitemap.xml" class="atagu">ダウンロード</a>
+
+
+
+
+    <footer class="pane-footer">
+        <div class="container">
+    
+            <div id="footernav" class="block-footernav">
+              <ul class="block-footernav--item-list-1">
+                <li class="block-footernav--ttl"><a href="index.html">サイト</a></li>
+                <li class="block-footernav--content"><a href="about.html">プロフィール</a></li>
+                <li class="block-footernav--content"><a href="profile.html">プロフィール(アニメ風)</a></li>
+                <li class="block-footernav--content"><a href="service.html">サービス</a></li>
+                <li class="block-footernav--content"><a href="blog.html">ブログ</a></li>
+                <!--<li class="block-footernav--content"><a href="#">ここに新しい乱を作るにだ</a></li>
+                <li class="block-footernav--content"><a href="#">#</a></li>
+                <li class="block-footernav--content"><a href="#">#</a></li>
+                <li class="block-footernav--content"><a href="#">#</a></li>
+                <li class="block-footernav--content"><a href="#">#</a></li>
+                <li class="block-footernav--content"><a href="#">#</a></li>
+                <li class="block-footernav--content"><a href="#">#</a></li>
+                <li class="block-footernav--content"><a href="#">#</a></li>
+                <li class="block-footernav--content"><a href="#">#</a></li>
+                <li class="block-footernav--other"><a href="#" target="_blank">#</a></li>-->
+              </ul>
+              <ul class="block-footernav--item-list-1">
+                <li class="block-footernav--ttl"><a href="service.html">サービス</a></li>
+                <li class="block-footernav--content"><a href="service/sitemap/index.html">サイトマップ作成</a></li>
+                <li class="block-footernav--content"><a href="mags.html">MAGs</a></li>
+                <li class="block-footernav--content"><a href="3dgs.html">3BGs</a></li>
+                <li class="block-footernav--content"><a href="service/keisan/keisan.html">自動計算</a></li>
+                <li class="block-footernav--content"><a href="topng.html">topng</a></li>
+    
+                <!--<li class="block-footernav--ttl block-footernav--other"><a href="#">#</a></li>
+                <li class="block-footernav--content"><a href="#">#</a></li>
+                <li class="block-footernav--content"><a href="#">#</a></li>
+                <li class="block-footernav--content"><a href="#">#</a></li>
+                <li class="block-footernav--content"><a href="#">#</a></li>
+                <li class="block-footernav--content"><a href="#">#</a></li>-->
+              </ul>
+              <ul class="block-footernav--item-list-2">
+                <li><a href="pagesabout.html">はじめての方へ</a></li>
+                <li><a href="form/form.html">お問い合わせ</a></li>
+                <!--<li><a href="#">よくある質問</a></li>-->
+                <li><a href="sitepolicy.html">ウェブサイトご利用規約</a></li>
+              </ul>
+              <ul class="block-footernav--item-list-3">
+                <li><a target="_blank" href="mags.html"><img src="../../koukoku/mags_koukoku.png" alt="公式X" width="200px"></a></li>
+                <li><a target="_blank" href="https://m1ntooo.com"><img src="https://m1ntooo.com/Banner/m1ntooo.png" alt="m1ntooo" width="200px"></a></li>
+                <li><a target="_blank" href="service/sitemap/index.html"><img src="../../koukoku/sitemap_koukoku.jpg" alt="sitemapの広告" width="200px"></a></li>
+                <li><a target="_blank" href="topng.html"><img src="../../koukoku/topng_koukoku.png" alt="topngの広告" width="200px"></a></li>
+              </ul>
+            </div>
+        </div>
+
+</div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sitemapForm = document.getElementById("sitemap-form");
+            const downloadLink = document.getElementById("download-link");
+
+            sitemapForm.addEventListener("submit", async function (event) {
+                event.preventDefault();
+                const url = document.getElementById("url").value;
+
+                try {
+                    const sitemap = await generateSitemap(url);
+
+                    const blob = new Blob([sitemap], { type: "application/xml" });
+                    const urlObject = URL.createObjectURL(blob);
+                    downloadLink.href = urlObject;
+                    downloadLink.style.display = "block";
+                } catch (error) {
+                    console.error("サイトマップ生成エラー:", error);
+                }
+            });
+
+            async function generateSitemap(url) {
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        throw new Error(`サイトにアクセスできませんでした。ステータスコード: ${response.status}`);
+                    }
+
+                    const text = await response.text();
+                    const sitemap = createSitemapXML(text);
+                    return sitemap;
+                } catch (error) {
+                    return `エラー: ${error.message}`;
+                }
+            }
+
+            function createSitemapXML(content) {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(content, "text/html");
+
+                let xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
+                const links = xmlDoc.querySelectorAll("a");
+                links.forEach(link => {
+                    xml += `
+    <url>
+        <loc>${link.href}</loc>
+        <priority>0.8</priority>
+        <lastmod>${new Date().toISOString()}</lastmod>
+    </url>`;
+                });
+
+                xml += '\n</urlset>';
+                return xml;
+            }
+        });
+    </script>
+
+
+
+</body>
+</html>

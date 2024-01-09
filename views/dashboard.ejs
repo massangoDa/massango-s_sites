@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+</head>
+<body>
+  <h1>Mass銀行</h1>
+
+  <div id="welcome-message">
+    <p>ようこそ <span id="username"><%= username %></span> さん</p>
+    <p>所持金: <span id="money"><%= money %></span> 円</p>
+
+    <button id="addMoneyButton">お金を増やす</button>
+
+    <form action="/logout" method="get">
+      <button type="submit">ログアウト</button>
+    </form>
+    
+
+  </div>
+
+
+  <script>
+    // お金を増やすボタンを取得
+    const addMoneyButton = document.getElementById('addMoneyButton');
+    
+    // お金を表示する要素を取得
+    const moneyElement = document.getElementById('money');
+    
+    // ボタンがクリックされたときの処理
+    addMoneyButton.addEventListener('click', () => {
+      // サーバーサイドのエンドポイントにリクエストを送信
+      fetch('/addMoney', {
+        method: 'POST',
+      })
+      .then(response => response.json())
+      .then(data => {
+        // サーバーから返されたお金の値を表示に反映
+        // moneyElement.textContent = data.money + ' 円';
+      })
+      .catch(error => {
+        console.error('エラー:', error);
+      });
+    });
+  </script>
+  
+  
+  
+</body>
+</html>

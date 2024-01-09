@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせフォーム</title>
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="footer/footer.css">
+    
+</head>
+<body>
+    <div class="contact-form">
+        <p class="title">ご予約はこちら</p>
+
+        <form action="https://api.staticforms.xyz/submit" method="post">
+            <input type="hidden" name="accessKey" value="eb8e1ec4-018c-484d-a207-1afe1e344550">
+            <div class="item">
+                <label class="label">名前</label>
+                <input type="text" class="inputs" name="name" />
+            </div>
+
+            <div class="item">
+                <label class="label">メールアドレス</label>
+                <input type="email" class="inputs" name="email" required />
+            </div>
+
+            <div class="item">
+                <label class="label">内容</label>
+                <textarea class="inputs" placeholder="ご質問はこちら" name="message"></textarea>
+            </div>
+
+            <div class="button-area">
+                <input type="submit" value="送信" />
+                <input type="reset" value="リセット" />
+            </div>
+
+        </form>
+
+    </div>
+
+    <script>
+        // フォームが送信された後、リダイレクトを行う
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+          // フォームデータを非同期で送信
+          event.preventDefault(); // デフォルトのフォーム送信を防止
+    
+          // ここでフォームデータを送信し、成功した場合にリダイレクト
+          fetch('https://api.staticforms.xyz/submit', {
+            method: 'POST',
+            body: new FormData(document.getElementById('myForm')),
+          })
+          .then(response => {
+            if (response.status === 200) {
+              // リダイレクト
+              window.location.href = '/index.html'; // リダイレクト先のURLを指定
+            } else {
+              console.error('フォーム送信に失敗しました。');
+            }
+          })
+          .catch(error => {
+            console.error('フォーム送信エラー: ', error);
+          });
+        });
+      </script>
+
+</body>
+</html>

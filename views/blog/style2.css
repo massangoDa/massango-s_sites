@@ -1,0 +1,46 @@
+.box-1 {
+    background-color: #c5c5c5;
+    padding: 10px;
+  }
+  
+  .title1 {
+    margin: 0;
+    text-align: center;
+  }
+  
+  
+  .text-desu {
+    animation: none
+  }
+  
+  .text-desu {
+    font-size: 18px;
+    padding-left: 30px;
+  }
+  
+  .text-desu::before  {
+    content: "•";
+    margin-right: 0.5em;
+    position: relative;
+    background-color: #c5c5c5;
+  }
+  
+  .text-desu::after {
+    transform: translateX(-1000%);
+  }
+  
+  
+  pre {
+    background-color: #f4f4f4;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: auto;
+  }
+  
+  /* コードのスタイル */
+  code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    color: #333;
+  }

@@ -1,0 +1,220 @@
+@charset "UTF-8";
+/*!
+  Reset Stylesheet
+  Author: yama-dev - https://github.com/yama-dev
+  */
+html, body, div, span, object, iframe, embed, main,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, u, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video, source {
+  vertical-align: middle;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  outline: 0;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font-size: 100%;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+a {
+  vertical-align: baseline;
+  margin: 0;
+  background: transparent;
+  padding: 0;
+  font-size: 100%;
+}
+
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+  cursor: help;
+  border-bottom: 1px dotted;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+hr {
+  display: block;
+  margin: 1em 0;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  padding: 0;
+  height: 1px;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+
+
+
+
+main {
+  display: block;
+  position: relative;
+}
+
+a {
+  color: #55412e;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+path {
+  fill-rule: evenodd;
+}
+
+
+
+
+
+
+
+/*============================
+  footer
+============================*/
+.l-footer {
+  position: relative;
+  background-color: #ffffff;
+  padding: 40px 0;
+}
+
+.l-footer__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.l-footer__sns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.l-footer__sns-item {
+  width: 24px;
+  height: 24px;
+}
+
+.l-footer__sns-item + .l-footer__sns-item {
+  margin-left: 20px;
+}
+
+.l-footer__sns-link {
+  display: block;
+}
+
+.l-footer__sns-link svg {
+  width: 100%;
+  height: auto;
+}
+
+.l-footer__sns-link path {
+  fill: #55412e;
+  -webkit-transition: fill .3s ease;
+  transition: fill .3s ease;
+}
+
+.l-footer__copy {
+  font-weight: 500;
+  font-size: 10px;
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, "Helvetica Neue", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+  text-align: right;
+}
+
+
+
+
+
+
+.p-ttl__item.is-active {
+  opacity: 1;
+  -webkit-filter: blur(0);
+  filter: blur(0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 900px){
+  .is-pc {
+    display: none;
+  }
+  .is-sp {
+    display: block;
+  }
+  .l-sp-inner {
+    margin: 0 auto;
+    width: 85.867%;
+    max-width: 579.6px;
+  }
+  .l-sp-inner--fluid {
+    max-width: none;
+  }
+
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="make/style.css">
+  <title>Your Blog Writing Site</title>
+</head>
+<body>
+  <header>
+    <h1>Your Blog Writing Site</h1>
+  </header>
+
+  <main>
+    <div id="editor">
+      <!-- セクション（h2） -->
+      <div class="editor-section">
+        <textarea class="editor-content" placeholder="Content (h2)"></textarea>
+      </div>
+  
+      <!-- セクション（p） -->
+      <div class="editor-section">
+        <textarea class="editor-content" placeholder="Content (p)"></textarea>
+      </div>
+    </div>
+    <button id="saveAllBtn">Save All</button>
+    <div class="display-area" style="display: none;">
+      <div class="displayContent"></div>
+    </div>
+    <button id="downloadAllBtn" style="display: none;">Download All HTML</button>
+  </main>
+
+  <script src="make/script.js"></script>
+</body>
+</html>

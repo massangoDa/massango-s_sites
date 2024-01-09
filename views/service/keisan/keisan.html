@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自動計算機</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="計算めんどくさい...そう思ったことはありませんか？このサイトで計算したい数字を打つだけで自動で計算してくれます！">
+    <meta name="keywords" content="計算機, 計算, 自動計算">
+    <meta name="author" content="massango">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- OG tags -->
+        <meta property="og:title" content="自動計算機">
+        <meta property="og:type" content="article">
+        <meta property="og:description" content="計算めんどくさい...そう思ったことはありませんか？このサイトで計算したい数字を打つだけで自動で計算してくれます！">
+        <!-- Twitter Cards -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@massangoda">
+        <meta name="twitter:creator" content="@massangoda">
+        <meta name="twitter:title" content="自動計算機">
+        <meta name="twitter:description" content="計算めんどくさい...そう思ったことはありませんか？このサイトで計算したい数字を打つだけで自動で計算してくれます！">
+</head>
+<body>
+    <br>
+    <form oninput="op1.value = Number(a.value) + Number(b.value);">
+        <input type="number" name="a" id="a" value="0" size="5">
+        +
+        <input type="number" name="b" id="b" value="0" size="5">
+        ＝ <output name="op1" for="a b">0</output>
+      </form>
+      
+      <form oninput="op2.value = Number(c.value) - Number(d.value);">
+        <input type="number" name="c" id="c" value="0" size="5">
+        -
+        <input type="number" name="d" id="d" value="0" size="5">
+        ＝ <output name="op2" for="a b">0</output>
+      </form>
+      
+      <form oninput="op3.value = Number(e.value) * Number(f.value);">
+        <input type="number" name="e" id="e" value="0" size="5">
+        ×
+        <input type="number" name="f" id="f" value="0" size="5">
+        ＝ <output name="op3" for="e f">0</output>
+      </form>
+      
+      <form oninput="op4.value = Number(g.value) / Number(h.value);">
+        <input type="number" name="g" id="g" value="0" size="5">
+        ÷
+        <input type="number" name="h" id="" value="0" size="5">
+        ＝ <output name="op4" for="g h">0</output>
+      </form>
+
+      <br>
+      <br>
+
+      <form oninput="result.value = Math.round(Number(pri.value) * Number(tax.value) /100 + Number(pri.value));">
+        税抜き<input type="number" name="pri" id="pri" value="0" size="5">（円）
+        × 
+        <input type="number" name="tax" id="tax" value="10" size="5"> ％(消費税)= 税込み¥
+        <output name="result" for="pri tax">0</output>
+      </form>
+
+      <br>
+      <form oninput="bmi.value = Number(w.value) / (Number(h.value)/100 * Number(h.value)/100);">
+        体重<input type="number" name="w" id="w" value="0" size="5">（kg）
+        <br>
+        身長<input type="number" name="h" id="h" value="160" size="5"> （cm）
+        <br>
+        BMI<output name="bmi" for="w h">0</output>
+      </form>
+
+
+    
+</body>
+</html>

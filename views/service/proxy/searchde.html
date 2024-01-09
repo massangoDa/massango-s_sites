@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SearchDe</title>
+</head>
+<body>
+    <h1>SearchDe</h1>
+    <form action="/search" method="get">
+        <input type="text" name="query" placeholder="Enter your query">
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>画像検索</h2>
+    <form action="/picture" method="get">
+        <input type="text" name="query" placeholder="Enter your query">
+        <button type="submit1">Search</button>
+    </form>
+
+    <h2>Search Results</h2>
+    <div id="searchResults"></div>
+
+    <script src="proxy.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // すべてのaタグを取得
+            const links = document.querySelectorAll("a");
+
+            // すべてのaタグにクリックイベントリスナーを追加
+            links.forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault(); // デフォルトのリンク動作を無効にする
+                    const url = "/404.html"; // リダイレクト先のURLを設定
+                    window.location.href = url; // 404.html にリダイレクト
+                });
+            });
+        });
+    </script>
+</body>
+</html>
