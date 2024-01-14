@@ -44,7 +44,7 @@ server.listen(PORT, function () {
 const socketServer = io(server); // socket.io の初期化
 
 socketServer.on('connection', (socket) => {
-  console.log(`ユーザーが接続しました。IP: `);
+  console.log(`ユーザーが接続しました。 `);
 
   socket.emit('chat history', messages);
 
