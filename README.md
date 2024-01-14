@@ -1,16 +1,29 @@
 # MASSANGO
 
-## 概要
+![massango](https://massangooo.net/icon.png)
 
-このサイトは、オープンソースです。
+# 使い方
 
+Node.jsを使用してwebサイトをローカルで実行することができます。
 
-## ライセンス
+## 前提条件
 
-このプロジェクトは [MIT ライセンス](LICENSE.txt)のもとで公開されています。
+このリポジトリを使用するには、以下をローカルにインストールする必要があります
 
-## 連絡先
+- [npm](https://www.npmjs.com/)
 
-質問やフィードバックがある場合は、以下の連絡先までお気軽にご連絡ください。
+リポジトリのクローンを作成し、ディレクトリに移動してください。
+```
+git clone https://github.com/massangoDa/massango-s_sites.git
+cd massango-s_sites
+```
 
-- メール: info@massangooo.net
+## node.jsを使ってウェブサイトを動かす
+
+ウェブサイトを動かすには、以下を実行してください。
+```
+node index.js
+```
+
+これで、ウェブサーバーが80番ポートを使い実行されます。お使いのブラウザで、 http://localhost:80 にアクセスしてください。
+
