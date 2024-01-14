@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C#をVSCodeでやってみた</title>
+    <meta content="C#をVSCodeでやってみた" name="description">
+    <meta property="og:title" content="Massango" />
+    <meta property="og:description" content="C#をVSCodeでやってみた" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://massangooo.net" />
+    <meta property="og:image" content="https://massangooo.net/mass.png" />
+    <meta property="og:site_name" content="Massango" />
+    <meta property="og:locale" content="ja_JP"  />
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="../footer/footer.css">
+    <link rel="icon" href="../favicon.ico">
+</head>
+<body>
+    <header>
+        <a href="../index.html"><div class="logo">MASSANGO</div></a>
+        <nav>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">Profile</a></li>
+            
+            <li><a href="../service.html">Services</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="main-content">
+        <div class="box">
+            <h2>サイトをオープンソースにした話</h2>
+            <br>
+            <div class="box-1">
+                <p class="title1">目次</p>
+                <ui class="indent-h2">
+                    <li><a href="#chapter-1" class="text-desu">公開した場所</a></li>
+                    <li><a href="#chapter-2" class="text-desu">ライセンスなど</a></li>
+                    <li><a href="#chapter-3" class="text-desu">実行方法</a></li>
+                    <li><a href="#chapter-4" class="text-desu">貢献</a></li>
+                    <li><a href="#chapter-5" class="text-desu">最後に</a></li>
+
+                </ui>
+            </div>
+            <br>
+            <h2 id="chapter-1">公開した場所</h2>
+            <p>公開場所は、githubです。</p>
+            <a href="https://github.com/massangoDa/massango-s_sites" class="redmozi">https://github.com/massangoDa/massango-s_sites</a>
+            <img src="../gazou/github.png" alt="githubの画像" width="100%">
+            <br><br>
+            <h2 id="chapter-2">ライセンスなど</h2>
+            <p>このソースコードはMITライセンスのもと提供されています。詳細な条件については、<a href="https://github.com/massangoDa/massango-s_sites/blob/main/LICENSE" class="redmozi">https://github.com/massangoDa/massango-s_sites/blob/main/LICENSE</a>をご覧ください。</p>
+            <p>コードのコピー、変更、新しいサイトの作成などは自由に行えますが、いかなる種類の保証もありません。</p>
+            <img src="../gazou/mit.png" alt="MITライセンス" width="100%">
+            <br><br>
+            <h2 id="chapter-3">実行方法</h2>
+            <p>このプロジェクトはNode.jsを使用していますので、以下の手順に従って実行してください。</p>
+            <p>Node.jsをインストールしていない場合</p>
+            <p>まず、<a href="https://nodejs.org/download/" class="redmozi">https://nodejs.org/download/</a>にアクセスして、Node.jsをインストールしてください。</p>
+            <p>Node.jsをインストールしたら</p>
+            <p>まず、このプロジェクトをダウンロードしてください。</p>
+            <p>次に、コマンドプロンプトを開いて、このプロジェクトのディレクトリに移動してください。</p>
+            <p>コマンドプロンプトから</p>
+            <br>
+            <pre>
+                <code>
+npm install express
+npm install systeminformation
+npm install path
+npm install http
+npm install fs
+npm install randomstring
+npm install socket.io
+npm install request
+npm install csurf
+npm install cookie-parser
+                    
+
+
+node index.js
+                </code>
+            </pre>
+            <p>で実行することができます</p>
+            <p>httpのポート80で建てる設定になっていますので、ご自身の環境に合うようにindex.jsを変更してください。</p>
+              <br><br>
+                <h2 id="chapter-4">貢献</h2>
+                <p>このプロジェクトは、以下のソフトやライブラリなどをを使わせていただきました。</p>
+                <ul>
+                    <li><a href="https://code.visualstudio.com/" class="redmozi">Visual Studio Code</a>: プログラム作成</li>
+                    <li><a href="https://nodejs.org/" class="redmozi">Node.js</a>: JavaScriptの実行環境</li>
+                    <li><a href="https://expressjs.com/" class="redmozi">Express</a>: Webアプリケーションフレームワークとしての基盤を提供 <a href="https://github.com/expressjs/express/graphs/contributors" class="redmozi">Contributors</a></li>
+                    <li><a href="https://socket.io/" class="redmozi">Socket.IO</a>: リアルタイムな双方向通信を実現 <a href="https://github.com/socketio/socket.io/graphs/contributors" class="redmozi">Contributors</a></li>
+                    <li><a href="https://www.npmjs.com/package/systeminformation" class="redmozi">systeminformation</a>: システム情報を取得 <a href="https://www.npmjs.com/package/systeminformation" class="redmozi">Maintainers</a></li>
+                    <li><a href="https://www.npmjs.com/package/randomstring" class="redmozi">randomstring</a>: ランダムな文字列を生成 <a href="https://www.npmjs.com/package/randomstring" class="redmozi">Maintainers</a></li>
+                    <li><a href="https://www.npmjs.com/package/request" class="redmozi">request</a>: HTTPリクエストを送信 <a href="https://www.npmjs.com/package/request" class="redmozi">Maintainers</a></li>
+                    <li><a href="https://www.npmjs.com/package/csurf" class="redmozi">csurf</a>: CSRF対策 <a href="https://www.npmjs.com/package/csurf" class="redmozi">Maintainers</a></li>
+                    <li><a href="https://www.npmjs.com/package/cookie-parser" class="redmozi">cookie-parser</a>: Cookieをパース <a href="https://www.npmjs.com/package/cookie-parser" class="redmozi">Maintainers</a></li>
+                    <li><a href="https://www.npmjs.com/package/http" class="redmozi">http</a>: HTTPサーバーを作成 <a href="https://www.npmjs.com/package/http" class="redmozi">Maintainers</a></li>
+                    <li><a href="https://www.npmjs.com/package/fs" class="redmozi">fs</a>: ファイルシステムを操作 <a href="https://www.npmjs.com/package/fs" class="redmozi">Maintainers</a></li>
+                    <li><a href="https://www.npmjs.com/package/path" class="redmozi">path</a>: ファイルパスを操作 <a href="https://www.npmjs.com/package/path" class="redmozi">Maintainers</a></li>
+                  </ul>
+                  <p>その他、使用したソフトウェアやライブラリに感謝。</p>
+                
+
+              <h2 id="chapter-5">最後に</h2>
+              <p>有志のプログラマーに改善されると願っています()</p>
+              <p>このプロジェクトは、GitHubで管理されています。バグの報告や機能の提案、プルリクエストを歓迎します。</p>
+
+
+
+              </div>
+              
+
+            </div>
+
+      
+
+
+        <footer class="pane-footer">
+          <div class="container">
+      
+              <div id="footernav" class="block-footernav">
+                <ul class="block-footernav--item-list-1">
+                  <li class="block-footernav--ttl"><a href="../index.html">サイト</a></li>
+                  <li class="block-footernav--content"><a href="../about.html">プロフィール</a></li>
+                  <li class="block-footernav--content"><a href="../profile.html">プロフィール(アニメ風)</a></li>
+                  <li class="block-footernav--content"><a href="../service.html">サービス</a></li>
+                  <li class="block-footernav--content"><a href="../blog.html">ブログ</a></li>
+                  <li class="block-footernav--content"><a href="weather.html">今日の天気</a></li>
+                  <li class="block-footernav--content"><a href="../shakkin/index.html">Rehiniの借金時計</a></li>
+                  <!--<li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>-->
+                  <!--<li class="block-footernav--other"><a href="#" target="_blank">#</a></li>-->
+                </ul>
+                <ul class="block-footernav--item-list-1">
+                  <li class="block-footernav--ttl"><a href="../service.html">サービス</a></li>
+                  <li class="block-footernav--content"><a href="../service/sitemap/index.html">サイトマップ作成</a></li>
+                  <li class="block-footernav--content"><a href="../mags.html">MAGs</a></li>
+                  <li class="block-footernav--content"><a href="../3dgs.html">3BGs</a></li>
+                  <li class="block-footernav--content"><a href="../service/keisan/keisan.html">自動計算</a></li>
+                  <li class="block-footernav--content"><a href="../topng.html">topng</a></li>
+      
+                  <!--<li class="block-footernav--ttl block-footernav--other"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>
+                  <li class="block-footernav--content"><a href="#">#</a></li>-->
+                </ul>
+                <ul class="block-footernav--item-list-2">
+                  <li><a href="../pagesabout.html">はじめての方へ</a></li>
+                  <li><a href="../form/form.html">お問い合わせ</a></li>
+                  <!--<li><a href="#">よくある質問</a></li>-->
+                  <li><a href="../sitepolicy.html">ウェブサイトご利用規約</a></li>
+                </ul>
+                <ul class="block-footernav--item-list-3">
+                  <li><a target="_blank" href="https://hassy1216.github.io/"><img src="https://raw.githubusercontent.com/hassy1216/hassy1216.github.io/main/sketch-1696510507951.png" alt="hassy" width="200px"></a></li>
+                  <li><a target="_blank" href="https://m1ntooo.com"><img src="https://m1ntooo.com/Banner/m1ntooo.png" alt="m1ntooo" width="200px"></a></li>
+                  <li><a target="_blank" href="https://rumiserver.com/"><img src="https://rumiserver.com/Asset/rumisan_room/BANNR.png" alt="るみちゃん" width="200px"></a></li>
+                  <li><a target="_blank" href="topng.html"><img src="koukoku/topng_koukoku.png" alt="topngの広告" width="200px"></a></li>
+                </ul>
+              </div>
+          </div>
+
+  </div>
+
+
+
+</body>
+</html>
+

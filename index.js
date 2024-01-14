@@ -1,17 +1,16 @@
-const express = require('express')
+const express = require('express');
 const si = require('systeminformation');
-const path = require('path')
-const PORT = 443
-var https = require('https');
+const path = require('path');
+const http = require('http'); // Change here
 const fs = require('fs');
 const randomstring = require('randomstring');
-const io = require("socket.io");
-const request = require("request");
+const io = require('socket.io');
+const request = require('request');
 const csurf = require('csurf');
 const cookieParser = require('cookie-parser');
 
-
-const app = express()
+const app = express();
+const PORT = 80;
 
 const messages = [];
 
@@ -29,50 +28,46 @@ app.use((req, res, next) => {
   next();
 });
 
-
 // リクエストボディをパースするためのミドルウェアを追加
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, 'public')))
-//app.set('views', path.join(__dirname, 'views'))
+app.use(express.static(path.join(__dirname, 'public')));
 
+// app.set('views', path.join(__dirname, 'views'));
 
-
-
-var server = https.createServer(options, app);
+const server = http.createServer(app); // Change here
 
 server.listen(PORT, function () {
-    console.log(`Listening on port ${PORT}!`);
+  console.log(`Listening on port ${PORT}!`);
 });
-
 
 const socketServer = io(server); // socket.io の初期化
 
-socketServer.on("connection", (socket) => {
-    const userIP = socket.request.connection.remoteAddress;
-    console.log(`ユーザーが接続しました。IP: ${userIP}`);
+socketServer.on('connection', (socket) => {
+  const userIP = socket.request.connection.remoteAddress;
+  console.log(`ユーザーが接続しました。IP: ${userIP}`);
 
-    socket.emit('chat history', messages);
+  socket.emit('chat history', messages);
 
-    socket.on("chat message", (msg) => {
-        console.log('メッセージ:', msg);
-        messages.push(msg);
+  socket.on('chat message', (msg) => {
+    console.log('メッセージ:', msg);
+    messages.push(msg);
 
-        socketServer.emit('chat message', msg);
-    });
+    socketServer.emit('chat message', msg);
+  });
 });
 
 app.post('/search', (req, res) => {
-    const query = req.body.query;
-    const searchURL = `https://www.google.com/search?q=${query}`;
-    
-    request(searchURL, (error, response, body) => {
-        if (!error && response.statusCode === 200) {
-            res.send(body); // レスポンスを直接送信する
-        } else {
-            res.send('Error');
-        }
-    });
+  const query = req.body.query;
+  const searchURL = `https://www.google.com/search?q=${query}`;
+
+  request(searchURL, (error, response, body) => {
+    if (!error && response.statusCode === 200) {
+      res.send(body);
+    } else {
+      res.send('Error');
+    }
+  });
 });
 
 app.get('/url', (req, res) => {
@@ -168,6 +163,5 @@ function randomChoice(choices) {
 app.use((req, res, next) => {
   res.status(404).sendFile(__dirname + '/public/404.html');
 });
-
 
 
