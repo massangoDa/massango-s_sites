@@ -29,22 +29,23 @@
     transform: translateX(-1000%);
   }
   
-  
-  pre {
-    background-color: #f4f4f4;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    overflow: auto;
-  }
-  
-  /* コードのスタイル */
-  code {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
-    color: #333;
-  }
-
   .redmozi {
     color: red;
   }
+
+  pre {
+    background-color: #f8f9fa; /* コードブロックの背景色 */
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 15px;
+    overflow: auto;
+    font-family: 'Courier New', monospace; /* 等幅フォントを使用 */
+    position: relative;
+  }
+
+/* コードブロックのスタイル */
+.pre_tag pre {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap; /* ワード ラップを許可 */
+}

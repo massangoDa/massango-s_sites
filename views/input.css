@@ -1,0 +1,42 @@
+
+  /* 入力フィールドとテキストエリアの基本スタイル */
+  input[type="text"],
+  input[type="password"],
+  input[type="submit"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+  }
+  
+  /* ボタンの基本スタイル */
+  button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* ボタンのホバーエフェクト */
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* フォームのコンテナスタイル */
+  .form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
