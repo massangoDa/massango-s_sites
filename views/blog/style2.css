@@ -34,18 +34,160 @@
   }
 
   pre {
-    background-color: #f8f9fa; /* コードブロックの背景色 */
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    padding: 15px;
-    overflow: auto;
-    font-family: 'Courier New', monospace; /* 等幅フォントを使用 */
-    position: relative;
+    margin: 1em 0;
+    padding: 1em;
+    border-radius: 5px;
+    background: #202224;
+    color: #fff;
+    overflow-x: auto; /* ⭐ */
+    -webkit-overflow-scrolling: touch; /* ⭐ */
   }
+  
+  code {
+    font-family: 'Courier New', monospace;
+    color: #56cdff;
+  }
+  
+  .toc-005 {
+    margin-bottom: 30px;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+}
 
-/* コードブロックのスタイル */
-.pre_tag pre {
-  max-width: 100%;
-  overflow-x: auto;
-  white-space: pre-wrap; /* ワード ラップを許可 */
+.toc-005 div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 10px 0;
+    background-color: #007acc;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.toc-005 div::before {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: 5px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 4H21V6H8V4ZM3 3.5H6V6.5H3V3.5ZM3 10.5H6V13.5H3V10.5ZM3 17.5H6V20.5H3V17.5ZM8 11H21V13H8V11ZM8 18H21V20H8V18Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+    content: '';
+}
+
+.toc-005 ol {
+    list-style-type: decimal;
+    margin: 0;
+    overflow: hidden;
+}
+
+.toc-005 > ol {
+    padding: 1em 1em 1em 3em;
+}
+
+.toc-005 ol ol {
+    margin-top: 5px;
+    padding-left: 1.1em;
+}
+
+.toc-005 li {
+    padding: 5px 0;
+    font-weight: 600;
+}
+
+.toc-005 ol ol li {
+    font-weight: 500;
+    font-size: .9em;
+}
+
+.toc-005 a {
+    color: #333;
+    text-decoration: none;
+}
+
+.list-13 {
+  padding: 1em;
+}
+
+.list-13 li {
+  list-style-type: none;
+  position: relative;
+  padding: .3em .3em .3em 1em;
+  color: #333333;
+}
+
+.list-13 li::before,
+.list-13 li::after {
+  position: absolute;
+  left: 0;
+  background-color: #333333;
+  content: '';
+}
+
+.list-13 li::before {
+  top: 1em;
+  width: 10px;
+  height: 1px;
+}
+
+.list-13 li::after {
+  top: 0;
+  width: 1px;
+  height: 100%;
+}
+
+.list-13 li:last-child::after {
+  height: 1em;
+}
+
+.list-13 span {
+  display: flex;
+  align-items: center;
+}
+
+.list-13 span::before {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 5px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12.4142 5H21C21.5523 5 22 5.44772 22 6V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H10.4142L12.4142 5Z' fill='%238a9a5b'%3E%3C/path%3E%3C/svg%3E");
+  content: '';
+}
+
+.breadcrumb-005 {
+  display: flex;
+  gap: 0 20px;
+  list-style: none;
+  padding: 0;
+  font-size: .9em;
+}
+
+.breadcrumb-005 li {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-005 li:first-child::before {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 4px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 20C20 20.5523 19.5523 21 19 21H5C4.44772 21 4 20.5523 4 20V11L1 11L11.3273 1.6115C11.7087 1.26475 12.2913 1.26475 12.6727 1.6115L23 11L20 11V20ZM11 13V19H13V13H11Z' fill='%238a9a5b'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  content: '';
+}
+
+.breadcrumb-005 li:not(:last-child)::after {
+  display: inline-block;
+  width: .3em;
+  height: .6em;
+  margin-left: 12px;
+  background-color: #8a9a5b;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  content: '';
+}
+
+.breadcrumb-005 a {
+  color: #333333;
+  text-decoration: none;
 }
