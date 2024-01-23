@@ -64,20 +64,18 @@
             <a href="https://www.mysql.com/" class="redmozi">MySQLのロゴ</a>
             <br><br>
             <h2 id="chapter-2">データベースを作成する</h2>
-            <p>データベースを作成するには、</p>
+            <p>データベースを作成するには、このコマンドを使用します。</p>
             <pre>
                 <code>
 CREATE DATABASE データベース名;
                 </code>
             </pre>
-            <p>と入力します。</p>
-            <p>作成したデータベースを使用するには、</p>
+            <p>作成したデータベースを使用するには、このコマンドを使用します。</p>
             <pre>
                 <code>
 USE データベース名;
                 </code>
             </pre>
-            <p>と入力します。</p>
             <p>次に、データを保存するためのテーブルを作成します。</p>
             <pre>
                 <code>
@@ -122,13 +120,12 @@ CREATE TABLE blog_posts (
 npm install mysql
                 </code>
             </pre>
-            <p>次に、index.jsに</p>
+            <p>次に、index.jsに以下のプログラムを追加します。</p>
             <pre>
                 <code>
 const mysql = require('mysql');
                 </code>
             </pre>
-            <p>を追加します。</p>
             <p>次に、つなぐための情報を入力します</p>
             <pre>
                 <code>
@@ -164,13 +161,12 @@ INSERT INTO blog_posts (position, title, content, timestamp) VALUES ('blog/githu
                     </code>
                 </pre>
                 <p>これで、データベースにデータを入れることができました。</p>
-                <p>データを取得するには、</p>
+                <p>データを取得するには、以下のコマンドを実行してください。</p>
                 <pre>
                     <code>
 SELECT * FROM blog_posts;
                     </code>
                 </pre>
-                <p>と入力します。</p>
                 <p>これで、データを取得することができました。</p>
 
               <h2 id="chapter-5">終わり</h2>
@@ -183,13 +179,7 @@ SELECT * FROM blog_posts;
 
             </div>
 
-      
-
-
-
-
-
-
+    
 </body>
 </html>
 
