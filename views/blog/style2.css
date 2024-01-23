@@ -42,10 +42,9 @@
     overflow-x: auto; /* ⭐ */
     -webkit-overflow-scrolling: touch; /* ⭐ */
   }
-  
   code {
     font-family: 'Courier New', monospace;
-    color: #56cdff;
+    color: #fff;
   }
   
   .toc-005 {
@@ -190,5 +189,49 @@
 .breadcrumb-005 a {
   color: #333333;
   text-decoration: none;
+}
+
+
+@media only screen and (max-width: 800px) {
+
+  body {
+    text-align: left; /* ボディ内のテキストを左寄せにする */
+  }
+
+  .main-content {
+    margin: 0 auto; /* .main-contentを水平方向に中央寄せにする */
+    max-width: calc(100% - 20px); /* .main-contentの最大幅を100%に設定し、左右に10pxずつ余白を作る */
+  }
+
+  .box {
+    text-align: left; /* .box内のテキストを左寄せにする */
+  }
+
+  /* 画像を中央寄せにする */
+  .box img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* リンクを右寄せにする */
+  .redmozi {
+    text-align: right;
+  }
+
+  /* 目次のスタイル */
+  .toc-005 {
+    text-align: left;
+  }
+
+  /* リストのスタイル */
+  .list-13 span {
+    display: block;
+    margin: 10px 0;
+  }
+
+  /* コードのスタイル */
+  pre {
+    text-align: left;
+  }
 }
 
