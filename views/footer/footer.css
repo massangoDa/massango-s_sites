@@ -1,3 +1,5 @@
+/* 通常のスタイル */
+
 .reddesu {
   color: #dd4d4d;
 }
@@ -6,8 +8,6 @@
   color: black;
 }
 
-
-
 .block-footernav--ttl a {
   color: #000;
 }
@@ -15,154 +15,132 @@
 a {
   position: relative;
   text-decoration: none;
-  color: #000; /* リンクのデフォルトの文字色を指定 */
+  color: #000;
 }
-  
-  a::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #fff;
-    transform: scaleX(0); /* 初期状態では非表示 */
-    transform-origin: bottom right;
-    transition: transform 0.3s ease;
-  }
-  
-  a:hover::before {
-    transform: scaleX(1); /* ホバー時に表示 */
-  }
 
+a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
 
+a:hover::before {
+  transform: scaleX(1);
+}
 
-  .container {
-    width: 1220px;
-    margin: 0 auto;
-    padding: 0 10px
-  }
-  
-  .pane-header .container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    height: 118px;
-    padding-top: 0
-  }
-  
-  
-  .pane-footer {
-    position: relative;
-    min-width: 1220px;
-    margin-top: 120px;
-    padding: 0;
-    background: #f7f7f7
-  }
-  
-  li {
-    list-style: none;
-  }
+.container {
+  width: 1220px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
 
+.pane-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 118px;
+  padding-top: 0;
+}
 
+.pane-footer {
+  position: relative;
+  min-width: 1220px;
+  margin-top: 120px;
+  padding: 0;
+  background: #f7f7f7;
+}
 
+li {
+  list-style: none;
+}
 
-  .block-switcher li:last-child {
-    border-left: 0;
-    border-radius: 0 56px 56px 0
-  }
-  
-  .block-switcher a, .block-switcher span {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      width: 194px;
-      height: 44px;
-      text-decoration: none
-    }
-    
-    .block-switcher span {
-      border-radius: 44px;
-      background-color: #f7f7f7
-    }
-    
-    .block-switcher i {
-      display: none
-    }
-    
-  
-    
-    .pane-footer .container {
-      padding: 80px 0
-    }
-    
-    .block-footernav {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-      justify-content: space-between
-    }
-    
-    .block-footernav>ul {
-      width: 270px
-    }
-    
-    .block-footernav>ul>li:not(:first-child) {
-      margin-top: 7px
-    }
-    
-    .block-footernav>ul.block-footernav--item-list-3>li:not(:first-child) {
-      margin-top: 16px
-    }
-    
-    .block-footernav--item-list-1 .block-footernav--ttl+.block-footernav--ttl, .block-footernav--item-list-1 .block-footernav--ttl+.block-footernav--content, .block-footernav--item-list-1 .block-footernav--content+.block-footernav--pdf, .block-footernav--item-list-1 .block-footernav--content+.block-footernav--other {
-      margin-top: 18px
-    }
-    
-    .block-footernav--item-list-1 .block-footernav--ttl a {
-      position: relative;
-      padding-left: 25px;
-      font-size: 1.6rem;
-      font-weight: 700
-    }
-    
-    .block-footernav--item-list-1 .block-footernav--ttl a::before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 53%;
-      left: 0;
-      width: 16px;
-      height: 16px;
-      background: url(https://www.kenkomayo.com/img/usr/common/icon/icon_show_more.svg) center no-repeat;
-      background-size: contain;
-      -webkit-transform: translate(0, -50%);
-      transform: translate(0, -50%)
-    }
-    
-    .block-footernav--item-list-1 .block-footernav--content {
-      padding-left: 30px
-    }
-    
-    .block-footernav--item-list-1 .block-footernav--pdf a {
-      position: relative
-    }
-    
-  
+.block-switcher li:last-child {
+  border-left: 0;
+  border-radius: 0 56px 56px 0;
+}
+
+.block-switcher a,
+.block-switcher span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 194px;
+  height: 44px;
+  text-decoration: none;
+}
+
+.block-switcher span {
+  border-radius: 44px;
+  background-color: #f7f7f7;
+}
+
+.block-switcher i {
+  display: none;
+}
+
+.pane-footer .container {
+  padding: 80px 0;
+}
+
+.block-footernav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.block-footernav>ul {
+  width: 270px;
+}
+
+.block-footernav>ul>li:not(:first-child) {
+  margin-top: 7px;
+}
+
+.block-footernav>ul.block-footernav--item-list-3>li:not(:first-child) {
+  margin-top: 16px;
+}
+
+.block-footernav--item-list-1 .block-footernav--ttl+.block-footernav--ttl,
+.block-footernav--item-list-1 .block-footernav--ttl+.block-footernav--content,
+.block-footernav--item-list-1 .block-footernav--content+.block-footernav--pdf,
+.block-footernav--item-list-1 .block-footernav--content+.block-footernav--other {
+  margin-top: 18px;
+}
+
+.block-footernav--item-list-1 .block-footernav--ttl a {
+  position: relative;
+  padding-left: 25px;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.block-footernav--item-list-1 .block-footernav--ttl a::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 53%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background: url(https://www.kenkomayo.com/img/usr/common/icon/icon_show_more.svg) center no-repeat;
+  background-size: contain;
+  transform: translate(0, -50%);
+}
+
+.block-footernav--item-list-1 .block-footernav--content {
+  padding-left: 30px;
+}
+
+.block-footernav--item-list-1 .block-footernav--pdf a {
+  position: relative;
+}
+
 .logo {
   color: #fff;
 }
@@ -170,8 +148,17 @@ a {
 .header2 {
   display: flex;
   align-items: center;
-  background-color: #454d2d; /* #を削除 */
+  background-color: #454d2d;
   color: #fff;
   padding: 0px;
 }
 
+/* スマートフォン用のスタイル */
+
+@media only screen and (max-width: 600px) {
+  /* ここにスマートフォン用のスタイルを追加 */
+  /* 例: .container { width: 100%; padding: 0; } */
+  .banner {
+    display: none; /* バナーのクラス名やIDに応じて変更してください */
+  }
+}

@@ -898,3 +898,28 @@ code {
   font-size: 14px;
   color: #333;
 }
+
+@media only screen and (max-width: 600px) {
+  .pane-footer {
+    min-width: auto;
+    margin-top: 60px; /* お好みで調整 */
+  }
+
+  .block-switcher a, .block-switcher span {
+    width: 100%; /* 幅を100%に設定してブロックレベルに変更 */
+  }
+
+  .block-footernav {
+    flex-direction: column; /* 縦方向に表示 */
+    align-items: center; /* 中央寄せ */
+  }
+
+  .block-footernav>ul {
+    width: 100%; /* 幅を100%に設定 */
+    margin-top: 10px; /* お好みで調整 */
+  }
+
+  .block-footernav>ul>li:not(:first-child) {
+    margin-top: 10px; /* お好みで調整 */
+  }
+}
